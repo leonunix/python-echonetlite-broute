@@ -1,0 +1,10 @@
+[Unit]
+Description=sample
+
+[Service]
+ExecStart=python3 /home/pi/wisun-gateway/main.py
+User=root
+
+[Install]
+WantedBy=multi-user.target
+
