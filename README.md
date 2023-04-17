@@ -10,11 +10,10 @@
 
 - 本プロダクトは、katsumin 氏の[python-echonet-lite](https://github.com/katsumin/python-echonet-lite)から派生しています。
 - 変更点は以下の通りです。
-    - 起動時に自動接続するようになっています。
-    - 接続完了後に、必須プロパティ(メーカーコード、積算電力量単位)の取得を行います。
-    - その後、データが取得できたら画面をOFFにします。
-    - 画面OFF時は、バックライトも消灯します。
-    - Home Assistant でセットアップする場合は、画面が消えてからセットアップをするとスムーズです。
+    USBに変更されています
+    cacheを全部抜いています。直接UDPからTTYに変更しています。
+    一つclientしかサポートしていません。
+
 
 ## インストール
 
@@ -98,44 +97,6 @@
 
 - ST7789 ディスプレイを使用時は config.ini の SSD1331 パートをコメントアウトして、ST7789 パートのコメントアウトを外す。
 
-## ハードウェア
-
-Wi-SUN モジュールと Raspberry-pi を接続するアダプターは、スイッチサイエンスで購入可能ですが、在庫はあまりないようです。
-
-- [Wi-SUNゲートウェイキット（RpiWi-001）](https://www.switch-science.com/collections/all/products/6160)
-- [Wi-SUNゲートウェイキット（最小コスト版、OLEDタイプ）](https://www.switch-science.com/collections/all/products/6467)
-- [Wi-SUNゲートウェイキット（最小コスト版、LCDタイプ）](https://www.switch-science.com/collections/all/products/6466)
-
-
-下記の回路図を参考に自作することも可能だと思います。
-
-## 回路図
-
-![](schematic.png)
-
-
-## Home Assistant
-
-Home Assistant において、ECHONET Lite 統合を通して利用できます。
-
-ECHONET Lite 統合をインストールして、「設定」-「統合」-「統合を追加」で ECHONET Lite を選択します。
-
-![Wi-SUN-Ethernet-1](https://user-images.githubusercontent.com/1412630/199409452-7129f9a6-0f84-4de0-a04e-d3354e1d1796.png)
-
-このプロダクトが正常に機能していると、「送信(Submit)」をクリックして少し待つと、自動的に検出されます。
-
-![Wi-SUN-Ethernet-2](https://user-images.githubusercontent.com/1412630/199409820-524072a1-f7b7-4c7c-a843-b7d35936ec91.png)
-
-更に進めると、Low voltage smart electric energy meter と Display の2つのデバイスが認識されます。
-Display デバイスは、このプロダクトのディスプレイの On / Off をコントロールできます。
-
-![Wi-SUN-Ethernet-3](https://user-images.githubusercontent.com/1412630/199410408-d381ee93-144a-40fa-ab95-6e4f9ddb8684.png)
-![Wi-SUN-Ethernet-4](https://user-images.githubusercontent.com/1412630/199410487-aeed3935-ab6d-43cc-b712-09f0a1659dcc.png)
-
-これで以下のように Home Assistant 上でデバイスを利用できるようになります。
-
-![Wi-SUN-Ethernet-5](https://user-images.githubusercontent.com/1412630/199410657-d089d043-df94-43f4-9732-7bd3680988e7.png)
-![Wi-SUN-Ethernet-6](https://user-images.githubusercontent.com/1412630/199410673-fd0b4c96-1f78-4d92-bed3-e56f1ae5ba9e.png)
 
 ## License
 
@@ -144,6 +105,8 @@ Copyright 2014 Keisuke Minami
 Copyright 2019 katsumin
 
 Copyright 2022 Naoki Sawada
+
+Copyright 2023 zhou jielei
 
 Apache License 2.0
 
